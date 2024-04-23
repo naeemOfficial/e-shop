@@ -1,0 +1,76 @@
+"use client"
+import React, { useState } from "react";
+import { IoMdHeartEmpty } from "react-icons/io";
+import { CgShoppingCart } from "react-icons/cg";
+import { FaRegUser, FaBars } from "react-icons/fa";
+import { IoSearch } from "react-icons/io5";
+import Drawer from "react-modern-drawer";
+import "react-modern-drawer/dist/index.css";
+
+const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className="container mx-auto">
+      <nav className="p-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <img
+              src="/logo.png"
+              alt="Logo"
+              className="w-44 h-14 md:h-16 md:w-52 object-cover"
+            />
+            <h1 className="text-white text-lg font-bold">Your Logo</h1>
+          </div>
+
+          <div className="hidden md:flex items-center text-secondary text-center">
+            <ul className="flex justify-center space-x-[35px]">
+              <li className="cursor-pointer text-base">Shop Products</li>
+              <li className="cursor-pointer text-base">Shop Services</li>
+              <li className="cursor-pointer text-base">Memberships</li>
+              <li className="cursor-pointer text-base">Agent Referrals</li>
+            </ul>
+            <div className="ml-[35px] relative">
+              <input
+                type="text"
+                placeholder="Search"
+                className="px-4 py-2 w-full rounded-md bg-primary text-white"
+              />
+              <button className="absolute text-white text-2xl right-0 top-0 mt-2 mr-2">
+                <IoSearch />
+              </button>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-[16px]">
+            <IoMdHeartEmpty className="text-secondary mr-4 cursor-pointer text-2xl" />
+            <CgShoppingCart className="text-secondary mr-4 cursor-pointer text-2xl" />
+            <div className="p-2 rounded-full bg-primary">
+              <FaRegUser className="text-white cursor-pointer text-xl" onClick={toggleDrawer} />
+            </div>
+            {/* Toggle button for the drawer */}
+            <button onClick={toggleDrawer} className="text-black text-2xl focus:outline-none ml-5 md:hidden">
+              <FaBars />
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <Drawer open={isOpen} onClose={toggleDrawer} direction="right">
+        <div style={{ width: 300, height: "100%", backgroundColor: "#fff" }}>
+          {/* Content for the Drawer can go here */}
+          <div className="p-4">
+            <h2>Drawer Content</h2>
+            <p>This is the content inside the drawer.</p>
+          </div>
+        </div>
+      </Drawer>
+    </div>
+  );
+};
+
+export default Navbar;
