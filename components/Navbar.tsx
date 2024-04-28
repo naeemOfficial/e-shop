@@ -1,11 +1,14 @@
-"use client"
-import React, { useState } from "react";
+"use client";
+
 import { IoMdHeartEmpty } from "react-icons/io";
 import { CgShoppingCart } from "react-icons/cg";
-import { FaRegUser, FaBars } from "react-icons/fa";
+import { FaRegUser } from "react-icons/fa";
+import { LuAlignRight } from "react-icons/lu";
 import { IoSearch } from "react-icons/io5";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
+import Link from "next/link";
+import { useState } from "react";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,11 +22,13 @@ const Navbar: React.FC = () => {
       <nav className="p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <img
-              src="/logo.png"
-              alt="Logo"
-              className="w-44 h-14 md:h-16 md:w-52 object-cover"
-            />
+            <Link href="/">
+              <img
+                src="/logo.png"
+                alt="Logo"
+                className="w-44 h-14 md:h-16 md:w-52 object-cover"
+              />
+            </Link>
             <h1 className="text-white text-lg font-bold">Your Logo</h1>
           </div>
 
@@ -47,14 +52,24 @@ const Navbar: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-[16px]">
-            <IoMdHeartEmpty className="text-secondary mr-4 cursor-pointer text-2xl" />
+            <Link href="/wishlist">
+              <div className="relative">
+                <IoMdHeartEmpty className="text-secondary mr-4 cursor-pointer text-2xl" />
+              </div>
+            </Link>
             <CgShoppingCart className="text-secondary mr-4 cursor-pointer text-2xl" />
             <div className="p-2 rounded-full bg-primary">
-              <FaRegUser className="text-white cursor-pointer text-xl" onClick={toggleDrawer} />
+              <FaRegUser
+                className="text-white cursor-pointer text-xl"
+                onClick={toggleDrawer}
+              />
             </div>
-            {/* Toggle button for the drawer */}
-            <button onClick={toggleDrawer} className="text-black text-2xl focus:outline-none ml-5 md:hidden">
-              <FaBars />
+
+            <button
+              onClick={toggleDrawer}
+              className="text-black text-2xl focus:outline-none ml-5 md:hidden"
+            >
+              <LuAlignRight />
             </button>
           </div>
         </div>
@@ -62,7 +77,6 @@ const Navbar: React.FC = () => {
 
       <Drawer open={isOpen} onClose={toggleDrawer} direction="right">
         <div style={{ width: 300, height: "100%", backgroundColor: "#fff" }}>
-          {/* Content for the Drawer can go here */}
           <div className="p-4">
             <h2>Drawer Content</h2>
             <p>This is the content inside the drawer.</p>

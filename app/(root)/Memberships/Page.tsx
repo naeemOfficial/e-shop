@@ -6,4 +6,4 @@ const Memberships = () => {
   )
 }
 
-export default Memberships
+export default Memberships;

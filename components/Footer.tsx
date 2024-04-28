@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <footer>
+      <div className="container">
+        <p>This is a dummy footer for a Next.js project.</p>
+      </div>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;
