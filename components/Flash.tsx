@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Countdown from "react-countdown";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import ProductCard from "./ui/Carousel";
@@ -8,6 +8,30 @@ import { productData } from "@/Data/Dummy";
 const Flash = () => {
   const [countdownDate, setCountdownDate] = useState(Date.now() + 100000000);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [numCards, setNumCards] = useState(3); // Default number of cards
+
+  useEffect(() => {
+    // Update number of cards based on screen size
+    const updateNumCards = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth >= 1024) {
+        setNumCards(3); // Large screens show 3 cards
+      } else if (screenWidth >= 768) {
+        setNumCards(2); // Medium screens show 2 cards
+      } else {
+        setNumCards(1); // Small screens show 1 card
+      }
+    };
+
+    // Call the function once to set initial number of cards
+    updateNumCards();
+
+    // Listen for window resize events to update number of cards
+    window.addEventListener("resize", updateNumCards);
+
+    // Clean up event listener on component unmount
+    return () => window.removeEventListener("resize", updateNumCards);
+  }, []);
 
   const handleCountdownComplete = () => {
     const newCountdownDate = Date.now() + 100000000;
@@ -22,7 +46,7 @@ const Flash = () => {
 
   const getCurrentProducts = () => {
     const startIndex = currentIndex;
-    const endIndex = (currentIndex + 3) % productData.length;
+    const endIndex = (currentIndex + numCards) % productData.length;
     if (startIndex <= endIndex) {
       return productData.slice(startIndex, endIndex);
     } else {

@@ -2,6 +2,8 @@ import Banner from "@/components/Banner";
 import Feature from "@/components/Feature";
 import Flash from "@/components/Flash";
 import MoreProducts from "@/components/MoreProducts";
+import OurProduct from "@/components/OurProduct";
+import OurServices from "@/components/OurServices";
 import Save from "@/components/Save";
 
 export default function Home() {
@@ -12,6 +14,8 @@ export default function Home() {
       <Feature/>
       <Flash/>
       <MoreProducts/>
+      <OurProduct/>
+      <OurServices/>
     </main>
   );
 }
