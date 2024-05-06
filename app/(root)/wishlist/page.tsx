@@ -25,7 +25,7 @@ const WishList: React.FC<WishListProps> = ({ wishlistItems }) => {
                 <tbody>
                     {wishlistItems.map((item, index) => (
                         <tr key={index}>
-                            <td><img src={item.image} alt={item.product_name} /></td>
+                            <td><img src={item.image} alt="" /></td>
                             <td>{item.product_name}</td>
                             <td>{item.price}</td>
                             <td>{item.stock_status}</td>

@@ -5,6 +5,8 @@ import MoreProducts from "@/components/MoreProducts";
 import OurProduct from "@/components/OurProduct";
 import OurServices from "@/components/OurServices";
 import Save from "@/components/Save";
+import Startups from "@/components/Startups";
+import Team from "@/components/Team";
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
       <MoreProducts/>
       <OurProduct/>
       <OurServices/>
+      <Startups/>
+      <Team/>
     </main>
   );
 }

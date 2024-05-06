@@ -7,7 +7,7 @@ const OurProduct = () => {
   const slicedData = ourData.slice(0, 6);
 
   return (
-    <div className="container mx-auto py-28">
+    <div className="container mx-auto py-20">
       <div className=" px-8 py-28">
         <div className="text-left">
           <h2 className="text-3xl font-extrabold text-secondary sm:text-4xl">
@@ -21,7 +21,7 @@ const OurProduct = () => {
           <OurCard key={index} {...product} />
         ))}
       </div>
-      <div className="flex py-20 justify-center">
+      <div className="flex pt-20 justify-center">
         <button className="text-white bg-primary py-4 px-[53px] text-base font-medium rounded">
           View All Products
         </button>

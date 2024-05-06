@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-export const AgentReferrals = () => {
-  return (
-    <div>AgentReferrals</div>
-  )
-}
+const AgentReferrals = () => {
+    return (
+        <div>
+            thr
+        </div>
+    );
+};
+
+export default AgentReferrals;

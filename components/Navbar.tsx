@@ -1,5 +1,4 @@
 "use client";
-
 import { IoMdHeartEmpty } from "react-icons/io";
 import { CgShoppingCart } from "react-icons/cg";
 import { FaRegUser } from "react-icons/fa";
@@ -33,12 +32,21 @@ const Navbar: React.FC = () => {
           </div>
 
           <div className="hidden md:flex items-center text-secondary text-center">
-            <ul className="flex justify-center space-x-[35px]">
-              <li className="cursor-pointer text-base">Shop Products</li>
-              <li className="cursor-pointer text-base">Shop Services</li>
-              <li className="cursor-pointer text-base">Memberships</li>
-              <li className="cursor-pointer text-base">Agent Referrals</li>
-            </ul>
+            <div className="flex justify-center space-x-[35px]">
+              <Link href="/shopproducts">
+                {" "}
+                <h1>Shop Products</h1>
+              </Link>
+              <Link href="/shopservices">
+                <h1>Shop Services</h1>
+              </Link>
+              <Link href="/memberships">
+                <h1>Memberships</h1>
+              </Link>
+              <Link href="/agentreferrals">
+                <h1>Agent Referrals</h1>
+              </Link>
+            </div>
             <div className="ml-[35px] relative">
               <input
                 type="text"
