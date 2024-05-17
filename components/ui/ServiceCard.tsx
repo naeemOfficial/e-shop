@@ -11,6 +11,12 @@ const ServiceCard: React.FC<ServiceProps> = ({
   description,
   service_features,
 }) => {
+  const handleMoreDetails = () => {
+    const serviceFeaturesString = service_features.join(",");
+
+    window.location.href = `/app/(root)/ServiceDetails?service_name=${service_name}&rate=${rate}&description=${description}&service_features=${serviceFeaturesString}`;
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md w-[650px]">
       <div className="py-3 text-center bg-primary">
@@ -50,13 +56,13 @@ const ServiceCard: React.FC<ServiceProps> = ({
                 Sign up
               </button>
             </Link>
-            <Link
-              href="/servicedetails"
+
+            <button
+              className="border border-secondary text-secondary px-11 py-4 text-base  rounded"
+              onClick={handleMoreDetails}
             >
-              <button className="border border-secondary text-secondary px-11 py-4 text-base  rounded">
-                More Details
-              </button>
-            </Link>
+              More Details
+            </button>
           </div>
         </div>
       </div>

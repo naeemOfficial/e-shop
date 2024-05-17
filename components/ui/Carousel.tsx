@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ProductProps } from "../../Data/Dummy";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoEyeOutline } from "react-icons/io5";
 import ReactStars from "react-stars";
+import Link from "next/link";
+import WishList from '../../app/(root)/wishlist/page';
 
-const Carousel: React.FC<ProductProps & { addToWishlistHandler: (item: ProductProps) => void }> = ({
+const Carousel: React.FC<
+  ProductProps & { addToWishlistHandler: (item: ProductProps) => void }
+> = ({
   image,
   product_name,
   price,
@@ -14,18 +18,38 @@ const Carousel: React.FC<ProductProps & { addToWishlistHandler: (item: ProductPr
   stock_status,
   addToWishlistHandler,
 }) => {
-  const addToWishlist = () => {
-    const newItem: ProductProps = {
-      image,
-      product_name,
-      price,
-      discount_price,
-      rating,
-      num_reviews,
-      stock_status,
-    };
-    addToWishlistHandler(newItem);
+  const [wishList, setWishlist] = useState(() => {
+    const savedWishlist = localStorage.getItem('wishlist');
+    return savedWishlist ? JSON.parse(savedWishlist) : [];
+  })
+  const [product, setProduct] = useState('');
+
+  useEffect(() => {
+    // Save the wishlist to localStorage whenever it changes
+    localStorage.setItem('wishlist', JSON.stringify(wishList));
+  }, [wishList]);
+  const addToWishlist = (product_name) => {
+    console.log("Adding to wishlist:", product_name); // Debugging log
+    if (product_name.trim() === '' || wishList.includes(product_name)) return; // Prevent adding empty or duplicate product names
+    console.log("Previous Wishlist:", wishList); // Debugging log
+    setWishlist(prevWishList => [...prevWishList, product_name]); // Update state with the new product
+    console.log("New Wishlist:", [...wishList, product_name]); // Debugging log
+    setProduct('');
   };
+  // const addToWishlist = (product_name: string) => {
+  //   console.log(product_name);
+  //   localStorage.setItem("product",product_name)
+  //   // const newItem: ProductProps = {
+  //   //   image,
+  //   //   product_name,
+  //   //   // price,
+  //   //   // discount_price,
+  //   //   // rating,
+  //   //   // num_reviews,
+  //   //   // stock_status,
+  //   // };
+  //   // addToWishlistHandler(newItem);
+  // };
   return (
     <div className="bg-white rounded-lg shadow-md w-[500px]">
       <div className="relative bg-[#F1F1F1] h-[350px]">
@@ -45,7 +69,7 @@ const Carousel: React.FC<ProductProps & { addToWishlistHandler: (item: ProductPr
           <div className="flex flex-col items-center justify-center text-secondary">
             <div
               className="mb-5 p-[6px] rounded-full bg-white"
-              onClick={addToWishlist}
+              onClick={() => addToWishlist(product_name)}
             >
               <IoIosHeartEmpty className="text-2xl" />
             </div>

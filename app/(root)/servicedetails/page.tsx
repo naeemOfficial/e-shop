@@ -1,29 +1,28 @@
-import React from 'react';
+"use client";
 
-interface ServiceDetailsProps {
-    serviceName: string;
-    description: string;
-    rate: string;
-    serviceFeatures: string;
-    image: string; // Add image prop
-}
+import React from "react";
+import { useRouter } from "next/compat/router";
 
-const ServiceDetails: React.FC<ServiceDetailsProps> = ({
-    serviceName,
-    description,
-    rate,
-    serviceFeatures,
-    image, // Destructure image prop
-}) => {
+
+const ServiceDetails = () => {
+    const router = useRouter();
+  
+    if (!router) {
+      // Handle the case where router is null
+      return <div>Router is not available.</div>;
+    }
+  
+    const { service_name, rate, description, service_features } = router.query;
+  
     return (
-        <div>
-            <h1>{serviceName}</h1>
-            <img src={image} alt={serviceName} />
-            <p>Description: {description}</p>
-            <p>Rate: {rate}</p>
-            <p>Service Features: {serviceFeatures}</p>
-        </div>
+      <div>
+        <h2>{service_name}</h2>
+        <p>Rate: {rate}</p>
+        <p>Description: {description}</p>
+        <p>Service Features: {service_features}</p>
+      </div>
     );
-};
+  };
 
 export default ServiceDetails;
+
