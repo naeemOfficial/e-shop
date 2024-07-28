@@ -8,7 +8,6 @@ const ServiceDetails = () => {
     const router = useRouter();
   
     if (!router) {
-      // Handle the case where router is null
       return <div>Router is not available.</div>;
     }
   

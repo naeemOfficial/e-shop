@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ProductProps } from "../../Data/Dummy";
 import { IoIosHeartEmpty } from "react-icons/io";
-import { IoEyeOutline } from "react-icons/io5";
+import { IoEyeOutline, IoPerson } from "react-icons/io5";
 import ReactStars from "react-stars";
-import Link from "next/link";
-import WishList from '../../app/(root)/wishlist/page';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const Carousel: React.FC<
-  ProductProps & { addToWishlistHandler: (item: ProductProps) => void }
-> = ({
+const Carousel: React.FC<ProductProps> = ({
+  id,
   image,
   product_name,
   price,
@@ -16,40 +15,36 @@ const Carousel: React.FC<
   rating,
   num_reviews,
   stock_status,
-  addToWishlistHandler,
 }) => {
-  const [wishList, setWishlist] = useState(() => {
-    const savedWishlist = localStorage.getItem('wishlist');
-    return savedWishlist ? JSON.parse(savedWishlist) : [];
-  })
-  const [product, setProduct] = useState('');
+  const [isQuickViewVisible, setQuickViewVisible] = useState(false);
+  const [quantity, setQuantity] = useState(1);
 
-  useEffect(() => {
-    // Save the wishlist to localStorage whenever it changes
-    localStorage.setItem('wishlist', JSON.stringify(wishList));
-  }, [wishList]);
-  const addToWishlist = (product_name) => {
-    console.log("Adding to wishlist:", product_name); // Debugging log
-    if (product_name.trim() === '' || wishList.includes(product_name)) return; // Prevent adding empty or duplicate product names
-    console.log("Previous Wishlist:", wishList); // Debugging log
-    setWishlist(prevWishList => [...prevWishList, product_name]); // Update state with the new product
-    console.log("New Wishlist:", [...wishList, product_name]); // Debugging log
-    setProduct('');
+  const handleAddToWishlist = () => {
+    const productData = {
+      id,
+      image,
+      product_name,
+      price,
+      stock_status,
+    };
+    const existingWishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+    existingWishlist.push(productData);
+    localStorage.setItem("wishlist", JSON.stringify(existingWishlist));
+    toast.success("Successfully added to wishlist!");
   };
-  // const addToWishlist = (product_name: string) => {
-  //   console.log(product_name);
-  //   localStorage.setItem("product",product_name)
-  //   // const newItem: ProductProps = {
-  //   //   image,
-  //   //   product_name,
-  //   //   // price,
-  //   //   // discount_price,
-  //   //   // rating,
-  //   //   // num_reviews,
-  //   //   // stock_status,
-  //   // };
-  //   // addToWishlistHandler(newItem);
-  // };
+
+  const toggleQuickView = () => {
+    setQuickViewVisible(!isQuickViewVisible);
+  };
+
+  const increaseQuantity = () => {
+    setQuantity(prevQuantity => Math.min(prevQuantity + 1, 10));
+  };
+
+  const decreaseQuantity = () => {
+    setQuantity(prevQuantity => Math.max(prevQuantity - 1, 1));
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md w-[500px]">
       <div className="relative bg-[#F1F1F1] h-[350px]">
@@ -65,16 +60,13 @@ const Carousel: React.FC<
             -40%
           </div>
         </div>
-        <div className="absolute top-5 right-5 flex ">
+        <div className="absolute top-5 right-5 flex">
           <div className="flex flex-col items-center justify-center text-secondary">
-            <div
-              className="mb-5 p-[6px] rounded-full bg-white"
-              onClick={() => addToWishlist(product_name)}
-            >
-              <IoIosHeartEmpty className="text-2xl" />
+            <div className="mb-5 p-[6px] rounded-full bg-white" onClick={handleAddToWishlist}>
+              <IoIosHeartEmpty className="text-2xl cursor-pointer" />
             </div>
-            <div className="mb-5 p-[6px] rounded-full bg-white">
-              <IoEyeOutline className="text-2xl" />
+            <div className="mb-5 p-[6px] rounded-full bg-white" onClick={toggleQuickView}>
+              <IoEyeOutline className="text-2xl cursor-pointer" />
             </div>
           </div>
         </div>
@@ -98,9 +90,72 @@ const Carousel: React.FC<
             edit={false}
           />
           <span className="text-gray-600 text-sm ml-1">{rating}</span>
-          <p className="text-gray-600 text-sm ml-2">({num_reviews})</p>
+          <p className="text-gray-600 text-sm ml-2 flex items-center">
+            <IoPerson className="mr-1" />
+            {num_reviews}
+          </p>
         </div>
       </div>
+      {isQuickViewVisible && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-lg max-w-4xl w-full flex">
+            <img src={image} alt={product_name} className="w-1/2 h-auto object-cover rounded-lg" />
+            <div className="w-1/2 pl-8">
+              <h2 className="text-2xl font-semibold mb-4">{product_name}</h2>
+              <p className="text-lg font-medium">Price: {price}</p>
+              <p className="text-lg font-medium">Discount Price: {discount_price}</p>
+              <div className="flex items-center mb-2">
+                <ReactStars
+                  count={5}
+                  value={rating}
+                  size={24}
+                  color2={"#FDC648"}
+                  edit={false}
+                />
+                <span className="text-gray-600 text-sm ml-1">{rating}</span>
+                <p className="text-gray-600 text-sm ml-2 flex items-center">
+                  <IoPerson className="mr-1" />
+                  {num_reviews}
+                </p>
+              </div>
+              <p className="text-lg font-medium">Stock Status: {stock_status}</p>
+              <p className="mt-4">Description: This is a detailed description of the product.</p>
+              <div className="mt-4 flex items-center">
+                <label htmlFor="quantity" className="mr-2">Quantity:</label>
+                <div className="flex items-center">
+                  <button
+                    onClick={decreaseQuantity}
+                    className="px-2 py-1 bg-gray-200 text-gray-800 rounded-l-md"
+                  >
+                    -
+                  </button>
+                  <span className="px-4 py-1 border-t border-b border-gray-200">
+                    {quantity}
+                  </span>
+                  <button
+                    onClick={increaseQuantity}
+                    className="px-2 py-1 bg-gray-200 text-gray-800 rounded-r-md"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <button
+                className="mt-4 px-4 py-2 bg-primary text-white rounded-lg"
+              >
+                Add to Cart
+              </button>
+              <button
+                onClick={toggleQuickView}
+                className="mt-4 ml-2 px-4 py-2 bg-gray-400 text-white rounded-lg"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      <ToastContainer />
     </div>
   );
 };

@@ -1,54 +1,74 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { productData, ProductProps } from "@/Data/Dummy";
+import React, { useState, useEffect } from "react";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
-const WishList = () => {
-  const [wishlistItems, setWishlistItems] = useState<any>([]);
-
-  const datas = productData;
-  console.log(datas);
+const WishList: React.FC = () => {
+  const [wishlist, setWishlist] = useState<any[]>([]);
 
   useEffect(() => {
-    const product_name = localStorage.getItem("product");
-    console.log(product_name);
-    if (product_name) {
-      const foundProduct = productData.find(
-        (item) => item.product_name === product_name
-      );
-    //   setWishlistItems(foundProduct)
-      console.log(foundProduct);
-    }
+    const storedWishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+    setWishlist(storedWishlist);
   }, []);
 
-  if (!wishlistItems || wishlistItems.length === 0) {
-    return <div>No items in the wishlist</div>;
-  }
+  const handleDelete = (index: number) => {
+    const updatedWishlist = [...wishlist];
+    updatedWishlist.splice(index, 1);
+    setWishlist(updatedWishlist);
+    localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+  };
+
+  const handleAddToCart = (item: any) => {
+    const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
+    existingCart.push(item);
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+  };
 
   return (
-    <div>
-      <h2>Wishlist</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Stock Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {wishlistItems.map((item, index) => (
-            <tr key={index}>
-              <td>
-                <img src={item.image} alt="" />
-              </td>
-              <td>{item.product_name}</td>
-              <td>{item.price}</td>
-              <td>{item.stock_status}</td>
+    <div className="container mx-auto p-5">
+      <h2 className="text-2xl font-semibold mb-5">Wishlist</h2>
+      {wishlist.length === 0 ? (
+        <p className="text-gray-600">No items in the wishlist.</p>
+      ) : (
+        <table className="min-w-full bg-white">
+          <thead>
+            <tr>
+              <th className="py-2 px-4 border-b border-gray-200">Image</th>
+              <th className="py-2 px-4 border-b border-gray-200">Product Name</th>
+              <th className="py-2 px-4 border-b border-gray-200">Price</th>
+              <th className="py-2 px-4 border-b border-gray-200">Stock Status</th>
+              <th className="py-2 px-4 border-b border-gray-200">Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {wishlist.map((item, index) => (
+              <tr key={index}>
+                <td className="py-2 px-4 border-b flex justify-center items-center border-gray-200">
+                  <img src={item.image} alt={item.product_name} className="h-16 w-16 object-cover"/>
+                </td>
+                <td className="py-2 px-4 text-center border-b border-gray-200">{item.product_name}</td>
+                <td className="py-2 px-4 text-center border-b border-gray-200">{item.price}</td>
+                <td className="py-2 px-4 text-center border-b border-gray-200">{item.stock_status}</td>
+                <td className="py-2 px-4 border-b border-gray-200">
+                  <div className="flex justify-center items-center h-full">
+                    <button
+                      onClick={() => handleAddToCart(item)}
+                      className="py-2 px-6 rounded bg-primary mr-7 text-white"
+                    >
+                      Add to Cart
+                    </button>
+                    <button
+                      onClick={() => handleDelete(index)}
+                      className="hover:text-red-600 text-xl"
+                    >
+                      <RiDeleteBin6Line />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };

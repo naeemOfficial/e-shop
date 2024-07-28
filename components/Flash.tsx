@@ -3,37 +3,29 @@ import React, { useEffect, useState } from "react";
 import Countdown from "react-countdown";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import ProductCard from "./ui/Carousel";
-import { productData, ProductProps } from "@/Data/Dummy";
-
-
-
+import { productData } from "@/Data/Dummy";
 
 const Flash = () => {
   const [countdownDate, setCountdownDate] = useState(Date.now() + 100000000);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [numCards, setNumCards] = useState(3); // Default number of cards
-  const [wishlistItems, setWishlistItems] = useState<ProductProps[]>([]);
+  const [numCards, setNumCards] = useState(3);
 
   useEffect(() => {
-    // Update number of cards based on screen size
     const updateNumCards = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth >= 1024) {
-        setNumCards(3); // Large screens show 3 cards
+        setNumCards(3);
       } else if (screenWidth >= 768) {
-        setNumCards(2); // Medium screens show 2 cards
+        setNumCards(2);
       } else {
-        setNumCards(1); // Small screens show 1 card
+        setNumCards(1);
       }
     };
 
-    // Call the function once to set initial number of cards
     updateNumCards();
 
-    // Listen for window resize events to update number of cards
     window.addEventListener("resize", updateNumCards);
 
-    // Clean up event listener on component unmount
     return () => window.removeEventListener("resize", updateNumCards);
   }, []);
 
@@ -60,21 +52,6 @@ const Flash = () => {
       ];
     }
   };
-
-  function addToWishlistHandler(item: ProductProps): void {
-    // Check if the item is already in the wishlist
-    const isAlreadyAdded = wishlistItems.some(
-      (wishlistItem) => wishlistItem.product_name === item.product_name
-    );
-
-    // If the item is not already in the wishlist, add it
-    if (!isAlreadyAdded) {
-      setWishlistItems((prevItems) => [...prevItems, item]);
-      alert(`${item.product_name} added to wishlist!`);
-    } else {
-      alert(`${item.product_name} is already in the wishlist!`);
-    }
-  }
 
   return (
     <div className="container mx-auto py-[150px] ">
@@ -153,11 +130,7 @@ const Flash = () => {
       </div>
       <div className="flex justify-center py-20 gap-10 ">
         {getCurrentProducts().map((product, index) => (
-          <ProductCard
-            key={index}
-            {...product}
-            addToWishlistHandler={addToWishlistHandler}
-          />
+          <ProductCard key={index} {...product} />
         ))}
       </div>
     </div>

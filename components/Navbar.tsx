@@ -65,7 +65,11 @@ const Navbar: React.FC = () => {
                 <IoMdHeartEmpty className="text-secondary mr-4 cursor-pointer text-2xl" />
               </div>
             </Link>
-            <CgShoppingCart className="text-secondary mr-4 cursor-pointer text-2xl" />
+            <Link href="/cart">
+              <div className="relative">
+                <CgShoppingCart className="text-secondary mr-4 cursor-pointer text-2xl" />
+              </div>
+            </Link>
             <div className="p-2 rounded-full bg-primary">
               <FaRegUser
                 className="text-white cursor-pointer text-xl"

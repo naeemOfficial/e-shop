@@ -34,6 +34,7 @@ const cardData: CardProps[] = [
 ];
 
 export interface ProductProps {
+  id: number;
   image: string;
   product_name: string;
   price: string;
@@ -50,6 +51,7 @@ export interface ProductProps {
 
 const productData: ProductProps[] = [
   {
+    id: 1,
     image: "/flash/Smartphone.png",
     product_name: "Smartphone X",
     description:
@@ -65,6 +67,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 3 days",
   },
   {
+    id: 2,
     image: "/flash/Wireless Headphones.png",
     product_name: "Wireless Headphones",
     description:
@@ -80,6 +83,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 3 days",
   },
   {
+    id: 3,
     image: "/flash/Laptop Pro.png",
     product_name: "Laptop Pro",
     description:
@@ -95,6 +99,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 3 days",
   },
   {
+    id: 4,
     image: "/flash/Fitness Tracker.png",
     product_name: "Fitness Tracker",
     description:
@@ -110,6 +115,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 3 days",
   },
   {
+    id: 5,
     image: "/flash/Smart Watch.png",
     product_name: "Smart Watch",
     description:
@@ -125,6 +131,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 3 days",
   },
   {
+    id: 6,
     image: "/flash/Portable Speaker.png",
     product_name: "Portable Speaker",
     description:
@@ -140,6 +147,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 3 days",
   },
   {
+    id: 7,
     image: "/flash/Gaming Mouse.png",
     product_name: "Gaming Mouse",
     description:
@@ -155,6 +163,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 3 days",
   },
   {
+    id: 8,
     image: "/flash/Bluetooth-Earbuds.png",
     product_name: "Bluetooth Earbuds",
     description:
@@ -170,6 +179,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 3 days",
   },
   {
+    id: 9,
     image: "/flash/Tablet Pro.png",
     product_name: "Tablet Pro",
     description:
@@ -185,6 +195,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 3 days",
   },
   {
+    id: 10,
     image: "/flash/Portable Speaker.png",
     product_name: "Smart Speaker",
     description:
@@ -200,6 +211,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 3 days",
   },
   {
+    id: 11,
     image: "/flash/Digital Camera.png",
     product_name: "Digital Camera",
     description:
@@ -215,6 +227,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 3 days",
   },
   {
+    id: 12,
     image: "/flash/Smart Thermostat.png",
     product_name: "Smart Thermostat",
     description:
@@ -230,6 +243,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 3 days",
   },
   {
+    id: 13,
     image: "/flash/Wireless Keyboard.png",
     product_name: "Wireless Keyboard",
     description:
@@ -245,6 +259,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 3 days",
   },
   {
+    id: 14,
     image: "/flash/VR Headset.png",
     product_name: "VR Headset",
     description:
@@ -260,6 +275,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 3 days",
   },
   {
+    id: 15,
     image: "/flash/SmartTV.png",
     product_name: "VisionPlus",
     description:
@@ -275,6 +291,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 7 days",
   },
   {
+    id: 16,
     image: "/flash/Drone.png",
     product_name: "SkyMaster",
     description:
@@ -290,6 +307,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 5 days",
   },
   {
+    id: 17,
     image: "/flash/SmartHomeKit.png",
     product_name: "HomeMate",
     description:
@@ -305,6 +323,7 @@ const productData: ProductProps[] = [
     estimated_delivery_date: "Within 4 days",
   },
   {
+    id: 18,
     image: "/flash/GamingConsole.png",
     product_name: "GameX",
     description:
