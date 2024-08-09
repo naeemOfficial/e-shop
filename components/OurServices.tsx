@@ -1,5 +1,6 @@
+import Link from "next/link";
 import React from "react";
-import { IoIosHeartEmpty } from "react-icons/io";
+
 
 const OurServices = () => {
   return (
@@ -11,7 +12,7 @@ const OurServices = () => {
           </h2>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  gap-11 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-11 ">
         {/* Card 1 */}
         <div className="bg-white shadow-xl ">
           <div className="bg-primary py-4">
@@ -25,9 +26,6 @@ const OurServices = () => {
               alt="Image"
               className="w-full h-[450px] object-cover"
             />
-            <div className="mb-5 flex p-[5px] rounded-full bg-white absolute top-4 right-4 items-center">
-              <IoIosHeartEmpty className="text-2xl" />
-            </div>
           </div>
           <div className="px-4 py-4 text-center">
             <h2 className="text-base font-medium text-secondary mt-4">
@@ -37,12 +35,16 @@ const OurServices = () => {
               Save Up to $100 on a Complete Internet
             </p>
             <div className="mt-4 mb-6">
-              <button className="bg-primary text-white px-14 py-4 text-base rounded mr-4">
-                Sign up
-              </button>
-              <button className="border border-secondary text-secondary px-10 py-4 text-base  rounded">
-                More Details
-              </button>
+              <Link href="/memberships">
+                <button className="bg-primary text-white px-14 py-4 text-base rounded mr-4">
+                  Sign up
+                </button>
+              </Link>
+              <Link href="/shopservices">
+                <button className="border border-secondary text-secondary px-10 py-4 text-base4 rounded mt-4">
+                  More Details
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -59,9 +61,6 @@ const OurServices = () => {
               alt="Image"
               className="w-full h-[450px] object-cover"
             />
-            <div className="mb-5 flex p-[5px] rounded-full bg-white absolute top-4 right-4 items-center">
-              <IoIosHeartEmpty className="text-2xl" />
-            </div>
           </div>
           <div className="px-4 py-4 text-center">
             <h2 className="text-base font-medium text-secondary mt-4">
@@ -71,12 +70,16 @@ const OurServices = () => {
               Save Up to $100 on a Complete Internet
             </p>
             <div className="mt-4 mb-6">
-              <button className="bg-primary text-white px-14 py-4 text-base rounded mr-4">
-                Sign up
-              </button>
-              <button className="border border-secondary text-secondary px-10 py-4 text-base  rounded">
-                More Details
-              </button>
+              <Link href="/memberships">
+                <button className="bg-primary text-white px-14 py-4 text-base rounded mr-4">
+                  Sign up
+                </button>
+              </Link>
+              <Link href="/shopservices">
+                <button className="border border-secondary text-secondary px-10 py-4 text-base  rounded mt-4">
+                  More Details
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -92,9 +95,6 @@ const OurServices = () => {
               alt="Image"
               className="w-full h-[450px]  object-cover"
             />
-            <div className="mb-5 flex p-[5px] rounded-full bg-white absolute top-4 right-4 items-center">
-              <IoIosHeartEmpty className="text-2xl" />
-            </div>
           </div>
           <div className="px-4 py-4 text-center">
             <h2 className="text-base font-medium text-secondary mt-4">
@@ -104,12 +104,16 @@ const OurServices = () => {
               Save Up to $100 on a Complete Internet
             </p>
             <div className="mt-4 mb-6">
-              <button className="bg-primary text-white px-14 py-4 text-base rounded mr-4">
-                Sign up
-              </button>
-              <button className="border border-secondary text-secondary px-10 py-4 text-base  rounded">
-                More Details
-              </button>
+              <Link href="/memberships">
+                <button className="bg-primary text-white px-14 py-4 text-base rounded mr-4">
+                  Sign up
+                </button>
+              </Link>
+              <Link href="/shopservices">
+                <button className="border border-secondary text-secondary px-10 py-4 text-base  rounded mt-4">
+                  More Details
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -125,9 +129,6 @@ const OurServices = () => {
               alt="Image"
               className="w-full h-[450px] object-cover"
             />
-            <div className="mb-5 flex p-[5px] rounded-full bg-white absolute top-4 right-4 items-center">
-              <IoIosHeartEmpty className="text-2xl" />
-            </div>
           </div>
           <div className="px-4 py-4 text-center">
             <h2 className="text-base font-medium text-secondary mt-4">
@@ -137,20 +138,26 @@ const OurServices = () => {
               Save Up to $100 on a Complete Internet
             </p>
             <div className="mt-4 mb-6">
-              <button className="bg-primary text-white px-14 py-4 text-base rounded mr-4">
-                Sign up
-              </button>
-              <button className="border border-secondary text-secondary px-10 py-4 text-base  rounded">
-                More Details
-              </button>
+              <Link href="/memberships">
+                <button className="bg-primary text-white px-14 py-4 text-base rounded mr-4">
+                  Sign up
+                </button>
+              </Link>
+              <Link href="/shopservices">
+                <button className="border border-secondary text-secondary px-10 py-4 text-base  rounded mt-4">
+                  More Details
+                </button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
       <div className="flex py-28 justify-center">
-        <button className="text-white bg-primary py-4 px-[53px] text-base font-medium rounded">
-          View All Services
-        </button>
+        <Link href="/shopservices">
+          <button className="text-white bg-primary py-4 px-[53px] text-base font-medium rounded">
+            View All Services
+          </button>
+        </Link>
       </div>
     </div>
   );

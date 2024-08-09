@@ -52,7 +52,7 @@ const Carousel: React.FC<ProductProps> = ({
           <img
             src={image}
             alt={product_name}
-            className="h-[400px] object-cover"
+            className="h-auto md:h-[400px] object-cover"
           />
         </div>
         <div className="absolute top-5 left-5 flex py-2 px-3 rounded bg-primary">

@@ -14,7 +14,7 @@ const ShopProducts = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-11">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-11">
         {ourData.map((product, index) => (
           <OurCard key={index} {...product} />
         ))}

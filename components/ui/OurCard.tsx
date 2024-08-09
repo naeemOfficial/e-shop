@@ -49,13 +49,13 @@ const OurCard: React.FC<OurProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md w-[490px] mx-8">
-      <div className="relative bg-[#F1F1F1] h-[350px]">
+    <div className="bg-white rounded-lg shadow-md mx-4 mb-8">
+      <div className="relative bg-[#F1F1F1] h-[300px] sm:h-[350px]">
         <div className="absolute inset-0 flex items-center justify-center">
           <img
             src={image}
             alt={product_name}
-            className="h-[300px] object-cover"
+            className="h-full object-cover"
           />
         </div>
         <div className="absolute top-5 left-5 flex py-2 px-3 rounded bg-primary">
@@ -74,13 +74,13 @@ const OurCard: React.FC<OurProps> = ({
           </div>
         </div>
       </div>
-      <div className="p-5">
-        <h3 className="text-xl font-semibold mb-2">{product_name}</h3>
-        <div className="flex gap-5">
-          <p className="text-primary text-base font-medium mb-2">
+      <div className="p-4 sm:p-5">
+        <h3 className="text-lg sm:text-xl font-semibold mb-2">{product_name}</h3>
+        <div className="flex gap-2 sm:gap-5 mb-2">
+          <p className="text-primary text-base font-medium">
             {discount_price}
           </p>
-          <p className="text-[#7D7D7D] text-base font-medium line-through mb-2">
+          <p className="text-[#7D7D7D] text-base font-medium line-through">
             {price}
           </p>
         </div>
@@ -88,7 +88,7 @@ const OurCard: React.FC<OurProps> = ({
           <ReactStars
             count={5}
             value={rating}
-            size={24}
+            size={20}
             color2={"#FDC648"}
             edit={false}
           />
@@ -107,10 +107,10 @@ const OurCard: React.FC<OurProps> = ({
       </div>
       {isQuickViewVisible && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-lg max-w-4xl w-full flex">
-            <img src={image} alt={product_name} className="w-1/2 h-auto object-cover rounded-lg" />
-            <div className="w-1/2 pl-8">
-              <h2 className="text-2xl font-semibold mb-4">{product_name}</h2>
+          <div className="bg-white p-4 sm:p-8 rounded-lg max-w-4xl w-full flex flex-col sm:flex-row">
+            <img src={image} alt={product_name} className="w-full sm:w-1/2 h-auto object-cover rounded-lg" />
+            <div className="w-full sm:w-1/2 pl-0 sm:pl-8 mt-4 sm:mt-0">
+              <h2 className="text-xl sm:text-2xl font-semibold mb-4">{product_name}</h2>
               <p className="text-lg font-medium">Price: {price}</p>
               <p className="text-lg font-medium">Discount Price: {discount_price}</p>
               <div className="flex items-center mb-2">
@@ -128,7 +128,7 @@ const OurCard: React.FC<OurProps> = ({
                 </p>
               </div>
               <p className="text-lg font-medium">Stock Status: {stock_status}</p>
-              <p className="mt-4">Description: {description}</p>
+              <p className="mt-4">{description}</p>
               <div className="mt-4 flex items-center">
                 <label htmlFor="quantity" className="mr-2">Quantity:</label>
                 <div className="flex items-center">

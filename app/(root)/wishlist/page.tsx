@@ -1,9 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 const WishList: React.FC = () => {
   const [wishlist, setWishlist] = useState<any[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
     const storedWishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
@@ -19,8 +21,9 @@ const WishList: React.FC = () => {
 
   const handleAddToCart = (item: any) => {
     const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
-    existingCart.push(item);
+    existingCart.push({ ...item, quantity: 1 });
     localStorage.setItem("cart", JSON.stringify(existingCart));
+    router.push("/cart");
   };
 
   return (

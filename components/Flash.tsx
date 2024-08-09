@@ -54,49 +54,49 @@ const Flash = () => {
   };
 
   return (
-    <div className="container mx-auto py-[150px] ">
+    <div className="container mx-auto py-[50px] px-4 lg:py-[150px]">
       <div className="flex items-center mb-8">
         <img src="/icons/iphone.png" alt="Icon" className="h-12" />
         <p className="text-xl font-semibold text-primary">Today’s</p>
       </div>
-      <div className="flex justify-between items-center">
-        <div className="flex items-center gap-[65px]">
-          <p className="text-secondary text-[40px] font-bold">Flash Sales</p>
+      <div className="flex flex-col lg:flex-row justify-between items-center">
+        <div className="flex flex-col lg:flex-row items-center gap-[65px]">
+          <p className="text-secondary text-[30px] lg:text-[40px] font-bold">Flash Sales</p>
           <Countdown
             date={countdownDate}
             onComplete={handleCountdownComplete}
             renderer={({ days, hours, minutes, seconds }) => (
-              <div className="flex text-start items-end justify-between gap-8">
+              <div className="flex text-start items-end justify-between gap-4 lg:gap-8">
                 <div>
                   <p className="text-secondary text-sm">Days</p>
-                  <p className="text-secondary text-[40px] font-semibold">
+                  <p className="text-secondary text-[30px] lg:text-[40px] font-semibold">
                     {addLeadingZero(days)}
                   </p>
                 </div>
-                <span className="text-primary text-[40px] font-semibold">
+                <span className="text-primary text-[30px] lg:text-[40px] font-semibold">
                   :
                 </span>
                 <div>
                   <p className="text-secondary text-sm">Hours</p>
-                  <p className="text-secondary text-[40px] font-semibold">
+                  <p className="text-secondary text-[30px] lg:text-[40px] font-semibold">
                     {addLeadingZero(hours)}
                   </p>
                 </div>
-                <span className="text-primary text-[40px] font-semibold">
+                <span className="text-primary text-[30px] lg:text-[40px] font-semibold">
                   :
                 </span>
                 <div>
                   <p className="text-secondary text-sm">Minutes</p>
-                  <p className="text-secondary text-[40px] font-semibold">
+                  <p className="text-secondary text-[30px] lg:text-[40px] font-semibold">
                     {addLeadingZero(minutes)}
                   </p>
                 </div>
-                <span className="text-primary text-[40px] font-semibold">
+                <span className="text-primary text-[30px] lg:text-[40px] font-semibold">
                   :
                 </span>
                 <div>
                   <p className="text-secondary text-sm">Seconds</p>
-                  <p className="text-secondary text-[40px] font-semibold">
+                  <p className="text-secondary text-[30px] lg:text-[40px] font-semibold">
                     {addLeadingZero(seconds)}
                   </p>
                 </div>
@@ -104,7 +104,7 @@ const Flash = () => {
             )}
           />
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 mt-4 lg:mt-0">
           <button
             className="p-2 rounded-sm bg-primary hover:bg-gray-300 focus:outline-none"
             onClick={() =>
@@ -128,7 +128,7 @@ const Flash = () => {
           </button>
         </div>
       </div>
-      <div className="flex justify-center py-20 gap-10 ">
+      <div className="flex justify-center py-20 gap-10">
         {getCurrentProducts().map((product, index) => (
           <ProductCard key={index} {...product} />
         ))}

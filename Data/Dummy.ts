@@ -37,8 +37,8 @@ export interface ProductProps {
   id: number;
   image: string;
   product_name: string;
-  price: string;
-  discount_price: string;
+  price: number; // Use number
+  discount_price: number; // Use number
   rating: number;
   num_reviews: number;
   stock_status: string;
@@ -56,8 +56,8 @@ const productData: ProductProps[] = [
     product_name: "Smartphone X",
     description:
       "Experience cutting-edge technology with the Smartphone X. Packed with features for seamless communication and entertainment.",
-    price: "$499.99",
-    discount_price: "$449.99",
+    price: 499.99, // No quotes
+    discount_price: 449.99, // No quotes
     rating: 4.5,
     num_reviews: 120,
     stock_status: "In Stock",
@@ -66,14 +66,15 @@ const productData: ProductProps[] = [
     seller_brand_name: "TechGenius",
     estimated_delivery_date: "Within 3 days",
   },
+
   {
     id: 2,
     image: "/flash/Wireless Headphones.png",
     product_name: "Wireless Headphones",
     description:
       "Experience immersive sound quality with our Wireless Headphones. Enjoy your favorite music without any wires.",
-    price: "$99.99",
-    discount_price: "$79.99",
+    price: 99.99,
+    discount_price: 79.99,
     rating: 4.3,
     num_reviews: 85,
     stock_status: "Out of Stock",
@@ -88,8 +89,8 @@ const productData: ProductProps[] = [
     product_name: "Laptop Pro",
     description:
       "Boost your productivity with the Laptop Pro. Powerful performance in a sleek design, perfect for work or play.",
-    price: "$1199.99",
-    discount_price: "$999.99",
+    price: 1199.99,
+    discount_price: 999.99,
     rating: 4.8,
     num_reviews: 200,
     stock_status: "In Stock",
@@ -104,8 +105,8 @@ const productData: ProductProps[] = [
     product_name: "Fitness Tracker",
     description:
       "Stay on top of your fitness goals with our Fitness Tracker. Monitor your activity levels and improve your health.",
-    price: "$79.99",
-    discount_price: "$59.99",
+    price: 79.99,
+    discount_price: 59.99,
     rating: 4.0,
     num_reviews: 65,
     stock_status: "Out of Stock",
@@ -120,8 +121,8 @@ const productData: ProductProps[] = [
     product_name: "Smart Watch",
     description:
       "Stay connected and organized with our Smart Watch. Track your workouts, receive notifications, and more.",
-    price: "$199.99",
-    discount_price: "$179.99",
+    price: 199.99,
+    discount_price: 179.99,
     rating: 4.6,
     num_reviews: 150,
     stock_status: "In Stock",
@@ -136,8 +137,8 @@ const productData: ProductProps[] = [
     product_name: "Portable Speaker",
     description:
       "Take your music anywhere with our Portable Speaker. Enjoy clear, crisp sound in a compact and stylish design.",
-    price: "$69.99",
-    discount_price: "$49.99",
+    price: 69.99,
+    discount_price: 49.99,
     rating: 4.2,
     num_reviews: 80,
     stock_status: "Out of Stock",
@@ -152,8 +153,8 @@ const productData: ProductProps[] = [
     product_name: "Gaming Mouse",
     description:
       "Dominate your games with precision and style using our Gaming Mouse. Ergonomically designed for maximum comfort.",
-    price: "$49.99",
-    discount_price: "$39.99",
+    price: 49.99,
+    discount_price: 39.99,
     rating: 4.4,
     num_reviews: 100,
     stock_status: "In Stock",
@@ -168,8 +169,8 @@ const productData: ProductProps[] = [
     product_name: "Bluetooth Earbuds",
     description:
       "Experience wireless freedom with our Bluetooth Earbuds. Enjoy crystal-clear audio and hands-free convenience.",
-    price: "$129.99",
-    discount_price: "$99.99",
+    price: 129.99,
+    discount_price: 99.99,
     rating: 4.7,
     num_reviews: 90,
     stock_status: "Out of Stock",
@@ -184,8 +185,8 @@ const productData: ProductProps[] = [
     product_name: "Tablet Pro",
     description:
       "Enhance your digital experience with the Tablet Pro. Perfect for work, entertainment, and creativity on the go.",
-    price: "$699.99",
-    discount_price: "$649.99",
+    price: 699.99,
+    discount_price: 649.99,
     rating: 4.4,
     num_reviews: 180,
     stock_status: "In Stock",
@@ -200,8 +201,8 @@ const productData: ProductProps[] = [
     product_name: "Smart Speaker",
     description:
       "Bring the power of voice control to your home with our Smart Speaker. Stream music, get weather updates, and more.",
-    price: "$149.99",
-    discount_price: "$129.99",
+    price: 149.99,
+    discount_price: 129.99,
     rating: 4.6,
     num_reviews: 120,
     stock_status: "In Stock",
@@ -216,8 +217,8 @@ const productData: ProductProps[] = [
     product_name: "Digital Camera",
     description:
       "Capture life's precious moments in stunning detail with our Digital Camera. Perfect for photography enthusiasts.",
-    price: "$599.99",
-    discount_price: "$549.99",
+    price: 599.99,
+    discount_price: 549.99,
     rating: 4.7,
     num_reviews: 150,
     stock_status: "In Stock",
@@ -232,8 +233,8 @@ const productData: ProductProps[] = [
     product_name: "Smart Thermostat",
     description:
       "Take control of your home's climate with our Smart Thermostat. Save energy and stay comfortable all year round.",
-    price: "$129.99",
-    discount_price: "$109.99",
+    price: 129.99,
+    discount_price: 109.99,
     rating: 4.5,
     num_reviews: 100,
     stock_status: "In Stock",
@@ -248,8 +249,8 @@ const productData: ProductProps[] = [
     product_name: "Wireless Keyboard",
     description:
       "Upgrade your typing experience with our Wireless Keyboard. Sleek design and responsive keys for effortless typing.",
-    price: "$79.99",
-    discount_price: "$59.99",
+    price: 79.99,
+    discount_price: 59.99,
     rating: 4.3,
     num_reviews: 90,
     stock_status: "Out of Stock",
@@ -264,8 +265,8 @@ const productData: ProductProps[] = [
     product_name: "VR Headset",
     description:
       "Immerse yourself in virtual worlds with our VR Headset. High-quality visuals and comfortable design for extended use.",
-    price: "$299.99",
-    discount_price: "$249.99",
+    price: 299.99,
+    discount_price: 249.99,
     rating: 4.6,
     num_reviews: 110,
     stock_status: "In Stock",
@@ -280,8 +281,8 @@ const productData: ProductProps[] = [
     product_name: "VisionPlus",
     description:
       "Immerse yourself in the ultimate viewing experience with VisionPlus. Enjoy stunning visuals and smart features.",
-    price: "$1299.99",
-    discount_price: "$1199.99",
+    price: 1299.99,
+    discount_price: 1199.99,
     rating: 4.8,
     num_reviews: 220,
     stock_status: "In Stock",
@@ -296,8 +297,8 @@ const productData: ProductProps[] = [
     product_name: "SkyMaster",
     description:
       "Explore the skies with SkyMaster. Capture breathtaking aerial footage and enjoy hours of fun with this advanced drone.",
-    price: "$699.99",
-    discount_price: "$649.99",
+    price: 699.99,
+    discount_price: 649.99,
     rating: 4.6,
     num_reviews: 170,
     stock_status: "In Stock",
@@ -312,8 +313,8 @@ const productData: ProductProps[] = [
     product_name: "HomeMate",
     description:
       "Upgrade your home with HomeMate smart home kit. Control lights, appliances, and security from anywhere with your smartphone.",
-    price: "$199.99",
-    discount_price: "$179.99",
+    price: 199.99,
+    discount_price: 179.99,
     rating: 4.8,
     num_reviews: 210,
     stock_status: "In Stock",
@@ -328,8 +329,8 @@ const productData: ProductProps[] = [
     product_name: "GameX",
     description:
       "Immerse yourself in gaming with GameX. Enjoy a vast library of games and cutting-edge graphics with this gaming console.",
-    price: "$399.99",
-    discount_price: "$349.99",
+    price: 399.99,
+    discount_price: 349.99,
     rating: 4.9,
     num_reviews: 300,
     stock_status: "In Stock",
@@ -343,8 +344,8 @@ const productData: ProductProps[] = [
 export interface OurProps {
   image: string;
   product_name: string;
-  price: string;
-  discount_price: string;
+  price: number;
+  discount_price: number;
   rating: number;
   num_reviews: number;
   stock_status: string;
@@ -359,8 +360,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Laptop Pro X.png",
     product_name: "Laptop Pro X",
-    price: "$1299.99",
-    discount_price: "$1199.99",
+    price: 1299.99,
+    discount_price: 1199.99,
     rating: 4.7,
     num_reviews: 245,
     stock_status: "In Stock",
@@ -374,8 +375,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Glowing Skin Serum.png",
     product_name: "Glowing Skin Serum",
-    price: "$39.99",
-    discount_price: "$29.99",
+    price: 39.99,
+    discount_price: 29.99,
     rating: 4.5,
     num_reviews: 150,
     stock_status: "In Stock",
@@ -389,8 +390,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Wireless Earbuds.png",
     product_name: "Wireless Earbuds 2.0",
-    price: "$79.99",
-    discount_price: "$59.99",
+    price: 79.99,
+    discount_price: 59.99,
     rating: 4.3,
     num_reviews: 180,
     stock_status: "In Stock",
@@ -404,8 +405,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Classic Men's Huddy.png",
     product_name: "Classic Men's Huddy",
-    price: "$299.99",
-    discount_price: "$249.99",
+    price: 299.99,
+    discount_price: 249.99,
     rating: 4.6,
     num_reviews: 98,
     stock_status: "In Stock",
@@ -419,8 +420,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Modern Sectional Sofa.png",
     product_name: "Modern Sectional Sofa",
-    price: "$999.99",
-    discount_price: "$899.99",
+    price: 999.99,
+    discount_price: 899.99,
     rating: 4.8,
     num_reviews: 120,
     stock_status: "In Stock",
@@ -434,8 +435,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Smartphone.png",
     product_name: "Smartphone X Plus",
-    price: "$899.99",
-    discount_price: "$799.99",
+    price: 899.99,
+    discount_price: 799.99,
     rating: 4.6,
     num_reviews: 350,
     stock_status: "In Stock",
@@ -449,8 +450,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Hydrating Facial Cream.png",
     product_name: "Hydrating Facial Cream",
-    price: "$29.99",
-    discount_price: "$19.99",
+    price: 29.99,
+    discount_price: 19.99,
     rating: 4.4,
     num_reviews: 200,
     stock_status: "In Stock",
@@ -464,8 +465,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Smart Watch.png",
     product_name: "Smart Watch Pro",
-    price: "$149.99",
-    discount_price: "$129.99",
+    price: 149.99,
+    discount_price: 129.99,
     rating: 4.7,
     num_reviews: 180,
     stock_status: "In Stock",
@@ -479,8 +480,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Women's Floral Dress.png",
     product_name: "Women's Floral Dress",
-    price: "$59.99",
-    discount_price: "$49.99",
+    price: 59.99,
+    discount_price: 49.99,
     rating: 4.8,
     num_reviews: 120,
     stock_status: "In Stock",
@@ -494,8 +495,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Rustic Wooden Coffee Table.png",
     product_name: "Rustic Wooden Coffee Table",
-    price: "$199.99",
-    discount_price: "$179.99",
+    price: 199.99,
+    discount_price: 179.99,
     rating: 4.5,
     num_reviews: 150,
     stock_status: "In Stock",
@@ -509,8 +510,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Wireless Charging Pad.png",
     product_name: "Wireless Charging Pad",
-    price: "$29.99",
-    discount_price: "$19.99",
+    price: 29.99,
+    discount_price: 19.99,
     rating: 4.3,
     num_reviews: 250,
     stock_status: "In Stock",
@@ -524,8 +525,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Anti-Aging Night Cream.png",
     product_name: "Anti-Aging Night Cream",
-    price: "$49.99",
-    discount_price: "$39.99",
+    price: 49.99,
+    discount_price: 39.99,
     rating: 4.6,
     num_reviews: 180,
     stock_status: "In Stock",
@@ -539,8 +540,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Fitness Tracker.png",
     product_name: "Fitness Tracker Band",
-    price: "$49.99",
-    discount_price: "$39.99",
+    price: 49.99,
+    discount_price: 39.99,
     rating: 4.4,
     num_reviews: 200,
     stock_status: "In Stock",
@@ -554,8 +555,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Men's Casual Shirt.png",
     product_name: "Men's Casual Shirt",
-    price: "$34.99",
-    discount_price: "$24.99",
+    price: 34.99,
+    discount_price: 24.99,
     rating: 4.7,
     num_reviews: 150,
     stock_status: "In Stock",
@@ -569,8 +570,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Adjustable Standing Desk.png",
     product_name: "Adjustable Standing Desk",
-    price: "$299.99",
-    discount_price: "$249.99",
+    price: 299.99,
+    discount_price: 249.99,
     rating: 4.8,
     num_reviews: 120,
     stock_status: "In Stock",
@@ -584,8 +585,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Adjustable Standing Desk.png",
     product_name: "Bluetooth Speaker",
-    price: "$69.99",
-    discount_price: "$49.99",
+    price: 69.99,
+    discount_price: 49.99,
     rating: 4.5,
     num_reviews: 180,
     stock_status: "In Stock",
@@ -599,8 +600,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Moisturizing Lip Balm.png",
     product_name: "Moisturizing Lip Balm",
-    price: "$9.99",
-    discount_price: "$7.99",
+    price: 9.99,
+    discount_price: 7.99,
     rating: 4.2,
     num_reviews: 200,
     stock_status: "In Stock",
@@ -614,8 +615,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Compact Power Bank.png",
     product_name: "Compact Power Bank",
-    price: "$29.99",
-    discount_price: "$19.99",
+    price: 29.99,
+    discount_price: 19.99,
     rating: 4.3,
     num_reviews: 180,
     stock_status: "In Stock",
@@ -629,8 +630,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Women's Denim Jeans.png",
     product_name: "Women's Denim Jeans",
-    price: "$49.99",
-    discount_price: "$39.99",
+    price: 49.99,
+    discount_price: 39.99,
     rating: 4.6,
     num_reviews: 150,
     stock_status: "In Stock",
@@ -644,8 +645,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Retro Desk Lamp.png",
     product_name: "Retro Desk Lamp",
-    price: "$39.99",
-    discount_price: "$29.99",
+    price: 39.99,
+    discount_price: 29.99,
     rating: 4.7,
     num_reviews: 120,
     stock_status: "In Stock",
@@ -659,8 +660,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Security Camera.png",
     product_name: "Smart Home Security Camera",
-    price: "$99.99",
-    discount_price: "$79.99",
+    price: 99.99,
+    discount_price: 79.99,
     rating: 4.4,
     num_reviews: 250,
     stock_status: "In Stock",
@@ -674,8 +675,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Vitamin C Serum.png",
     product_name: "Vitamin C Serum",
-    price: "$29.99",
-    discount_price: "$19.99",
+    price: 29.99,
+    discount_price: 19.99,
     rating: 4.5,
     num_reviews: 200,
     stock_status: "In Stock",
@@ -689,8 +690,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Drone.png",
     product_name: "Compact Drone",
-    price: "$199.99",
-    discount_price: "$179.99",
+    price: 199.99,
+    discount_price: 179.99,
     rating: 4.6,
     num_reviews: 180,
     stock_status: "In Stock",
@@ -704,8 +705,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Men's Casual Shorts.png",
     product_name: "Men's Casual Shorts",
-    price: "$24.99",
-    discount_price: "$19.99",
+    price: 24.99,
+    discount_price: 19.99,
     rating: 4.8,
     num_reviews: 120,
     stock_status: "In Stock",
@@ -719,8 +720,8 @@ const ourData: OurProps[] = [
   {
     image: "/ourproducts/Modern Dining Table.png",
     product_name: "Modern Dining Table",
-    price: "$499.99",
-    discount_price: "$449.99",
+    price: 499.99,
+    discount_price: 449.99,
     rating: 4.7,
     num_reviews: 150,
     stock_status: "In Stock",
@@ -765,129 +766,134 @@ const teamData: TeamProps[] = [
 export interface ServiceProps {
   image: string;
   service_name: string;
-  rate: string; 
+  rate: string;
   number_of_person: number;
-  payment_monthly: string; 
+  payment_monthly: string;
   description: string;
   service_features: string[];
 }
 
-
-
 const serviceData: ServiceProps[] = [
-    {
-      image: "/service/Premium Web Hosting.jpg",
-      service_name: "Premium Web Hosting",
-      rate: "$9.99",
-      number_of_person: 1000,
-      payment_monthly: "Monthly",
-      description: "Reliable and fast web hosting service for small to medium-sized websites.",
-      service_features: [
-        "99.9% Uptime Guarantee",
-        "24/7 Customer Support",
-        "Unlimited Bandwidth",
-        "Free SSL Certificate"
-      ]
-    },
-    {
-      image: "/service/Website Development.jpg",
-      service_name: "E-commerce Website Development",
-      rate: "$299",
-      number_of_person: 500,
-      payment_monthly: "One-time",
-      description: "Professional e-commerce website development tailored to your business needs.",
-      service_features: [
-        "Custom Design",
-        "Mobile Responsive",
-        "Integration with Payment Gateways",
-        "Product Management System"
-      ]
-    },
-    {
-      image: "/service/Digital Marketing Package.jpg",
-      service_name: "Digital Marketing Package",
-      rate: "$499",
-      number_of_person: 200,
-      payment_monthly: "Monthly",
-      description: "Comprehensive digital marketing solution to boost your online presence.",
-      service_features: [
-        "SEO Optimization",
-        "Social Media Management",
-        "Content Creation",
-        "Analytics and Reporting"
-      ]
-    },
-    {
-      image: "/service/Graphic Design Services.png",
-      service_name: "Graphic Design Services",
-      rate: "$49/hour",
-      number_of_person: 300,
-      payment_monthly: "Hourly",
-      description: "Professional graphic design services for logos, branding, and marketing materials.",
-      service_features: [
-        "Unlimited Revisions",
-        "Quick Turnaround Time",
-        "Experienced Designers",
-        "Customized Designs"
-      ]
-    },
-    {
-      image: "/service/Product Photography.webp",
-      service_name: "Product Photography",
-      rate: "$199/session",
-      number_of_person: 150,
-      payment_monthly: "One-time",
-      description: "High-quality product photography to showcase your products effectively.",
-      service_features: [
-        "Studio or On-location Shoots",
-        "Image Editing",
-        "Fast Delivery",
-        "Multiple File Formats"
-      ]
-    },
-    {
-      image: "/service/Dropshipping Consultation.png",
-      service_name: "Dropshipping Consultation",
-      rate: "$99",
-      number_of_person: 100,
-      payment_monthly: "One-time",
-      description: "Expert consultation to start and grow your dropshipping business successfully.",
-      service_features: [
-        "Market Research",
-        "Supplier Sourcing",
-        "Store Setup Guidance",
-        "Marketing Strategies"
-      ]
-    },
-    {
-      image: "/service/Social Media Management.webp",
-      service_name: "Social Media Management",
-      rate: "$199/month",
-      number_of_person: 400,
-      payment_monthly: "Monthly",
-      description: "Effective management of your social media profiles for increased engagement and visibility.",
-      service_features: [
-        "Content Creation",
-        "Posting Schedule",
-        "Community Engagement",
-        "Performance Analytics"
-      ]
-    },
-    {
-      image: "/service/Website Maintenance.jpg",
-      service_name: "Website Maintenance",
-      rate: "$49/month",
-      number_of_person: 600,
-      payment_monthly: "Monthly",
-      description: "Regular updates and maintenance to keep your website running smoothly.",
-      service_features: [
-        "Security Updates",
-        "Backup and Restore",
-        "Content Updates",
-        "Performance Optimization"
-      ]
-    }
-  
+  {
+    image: "/service/Premium Web Hosting.jpg",
+    service_name: "Premium Web Hosting",
+    rate: "$9.99",
+    number_of_person: 1000,
+    payment_monthly: "Monthly",
+    description:
+      "Reliable and fast web hosting service for small to medium-sized websites.",
+    service_features: [
+      "99.9% Uptime Guarantee",
+      "24/7 Customer Support",
+      "Unlimited Bandwidth",
+      "Free SSL Certificate",
+    ],
+  },
+  {
+    image: "/service/Website Development.jpg",
+    service_name: "E-commerce Website Development",
+    rate: "$299",
+    number_of_person: 500,
+    payment_monthly: "One-time",
+    description:
+      "Professional e-commerce website development tailored to your business needs.",
+    service_features: [
+      "Custom Design",
+      "Mobile Responsive",
+      "Integration with Payment Gateways",
+      "Product Management System",
+    ],
+  },
+  {
+    image: "/service/Digital Marketing Package.jpg",
+    service_name: "Digital Marketing Package",
+    rate: "$499",
+    number_of_person: 200,
+    payment_monthly: "Monthly",
+    description:
+      "Comprehensive digital marketing solution to boost your online presence.",
+    service_features: [
+      "SEO Optimization",
+      "Social Media Management",
+      "Content Creation",
+      "Analytics and Reporting",
+    ],
+  },
+  {
+    image: "/service/Graphic Design Services.png",
+    service_name: "Graphic Design Services",
+    rate: "$49/hour",
+    number_of_person: 300,
+    payment_monthly: "Hourly",
+    description:
+      "Professional graphic design services for logos, branding, and marketing materials.",
+    service_features: [
+      "Unlimited Revisions",
+      "Quick Turnaround Time",
+      "Experienced Designers",
+      "Customized Designs",
+    ],
+  },
+  {
+    image: "/service/Product Photography.webp",
+    service_name: "Product Photography",
+    rate: "$199/session",
+    number_of_person: 150,
+    payment_monthly: "One-time",
+    description:
+      "High-quality product photography to showcase your products effectively.",
+    service_features: [
+      "Studio or On-location Shoots",
+      "Image Editing",
+      "Fast Delivery",
+      "Multiple File Formats",
+    ],
+  },
+  {
+    image: "/service/Dropshipping Consultation.png",
+    service_name: "Dropshipping Consultation",
+    rate: "$99",
+    number_of_person: 100,
+    payment_monthly: "One-time",
+    description:
+      "Expert consultation to start and grow your dropshipping business successfully.",
+    service_features: [
+      "Market Research",
+      "Supplier Sourcing",
+      "Store Setup Guidance",
+      "Marketing Strategies",
+    ],
+  },
+  {
+    image: "/service/Social Media Management.webp",
+    service_name: "Social Media Management",
+    rate: "$199/month",
+    number_of_person: 400,
+    payment_monthly: "Monthly",
+    description:
+      "Effective management of your social media profiles for increased engagement and visibility.",
+    service_features: [
+      "Content Creation",
+      "Posting Schedule",
+      "Community Engagement",
+      "Performance Analytics",
+    ],
+  },
+  {
+    image: "/service/Website Maintenance.jpg",
+    service_name: "Website Maintenance",
+    rate: "$49/month",
+    number_of_person: 600,
+    payment_monthly: "Monthly",
+    description:
+      "Regular updates and maintenance to keep your website running smoothly.",
+    service_features: [
+      "Security Updates",
+      "Backup and Restore",
+      "Content Updates",
+      "Performance Optimization",
+    ],
+  },
 ];
 
-export { cardData, productData, ourData, teamData, serviceData};
+export { cardData, productData, ourData, teamData, serviceData };
